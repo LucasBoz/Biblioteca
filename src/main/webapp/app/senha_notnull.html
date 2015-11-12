@@ -1,0 +1,7 @@
+<md-input-container> 
+	<label>Senha</label> 
+		<input required name="senha" type="password" ng-model="user.password" autocomplete="off">
+			<div ng-messages="password.$error">
+				<div ng-message="required">Campo obrigatório.</div>
+			</div>
+</md-input-container>

@@ -1,0 +1,40 @@
+<section layout="row" layout-sm="column" layout-align="start center">
+    <md-button class="md-raised md-primary" ng-if="userLogged.perfil == 'ADMINISTRADOR'" ng-href="#/usuario">Cadastrar Usuário</md-button>
+</section>
+<md-list>
+    <md-item-content>
+        <div flex><h3>Usuário</h3></div>
+        <div flex><h3>E-mail</h3></div>
+        <div flex><h3>Endereço</h3></div>
+        <div flex><h3>Perfil</h3></div>
+        <div flex="10"></div>
+    </md-item-content>
+    <md-item ng-repeat="user in users" >
+        <md-item-content>
+            <div flex>
+                <a ng-if="userLogged.perfil == 'ADMINISTRADOR'" ng-href="#/usuario/{{ user.id }}" class="nome">{{user.nome}}</a>
+                <h4 ng-if="userLogged.perfil != 'ADMINISTRADOR'">{{user.nome}}</h4>
+            </div>
+            <div flex>
+                <h4> {{user.email}}</h4>
+            </div>
+            <div flex>
+                <h4> {{user.endereco}}</h4>
+            </div>
+            <div flex>
+                <h4> {{user.perfil}}</h4>
+            </div>
+
+            <div flex="10" style="margin-rigth : 100px">
+
+                <div class="gap" ></div>
+                <md-button class="md-primary" ng-click="showConfirm($event , user)" ng-if="userLogged.perfil == 'ADMINISTRADOR'">
+                    Excluir
+                </md-button>
+            </div>
+
+
+        </md-item-content>
+        <hr/>
+    </md-item>
+</md-list>

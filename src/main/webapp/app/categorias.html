@@ -1,0 +1,23 @@
+<section layout="row" layout-sm="column" layout-align="start center">
+    <md-button class="md-raised md-primary" ng-href="#/categoria">Cadastrar CATEGORIAS</md-button>
+</section>
+<md-list style="width: 40%">
+    <h3>Categoria</h3>
+    <md-item ng-repeat="category in categories">
+        <md-item-content>
+            <div flex>
+                <a ng-href="#/categoria/{{ category.id }}" class=nome>{{category.nome}}</a>
+            </div>
+
+            <div flex="20" style="margin-rigth : 100px">
+                <div class="gap"></div>
+                <md-button class="md-primary" ng-click="showConfirm($event , category)">
+                    Excluir
+                </md-button>
+            </div>
+
+
+        </md-item-content>
+        <hr/>
+    </md-item>
+</md-list>

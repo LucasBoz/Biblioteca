@@ -1,0 +1,14 @@
+<h1 id="tituloUsuario">Cadastro de Categorias</h1>
+
+<form id="userForm" name="userForm" ng-submit="submitForm(categoria)" autocomplete="off">
+
+    <md-input-container>
+        <label>Nome do Categoria</label>
+        <input required name="nome" ng-model="categoria.nome">
+        <div ng-messages="nome.$error">
+            <div ng-message="required">Campo obrigatório.</div>
+        </div>
+    </md-input-container>
+    <md-button class="md-raised md-primary botaoSalvar" type="submit">SALVAR</md-button>
+    <md-button class="md-raised md-defaut botao" type="button" ng-href="#/categorias">CANCELAR</md-button>
+</form>

@@ -1,0 +1,35 @@
+<section layout="row" layout-sm="column" layout-align="start center">
+    <md-button class="md-raised md-primary" ng-href="#/livro">Cadastrar Livro</md-button>
+</section>
+<md-list>
+    <md-item-content>
+        <div flex><h3>Livro</h3></div>
+        <div flex><h3>Autor</h3></div>
+        <div flex><h3>Categoria</h3></div>
+        <div flex="20"></div>
+    </md-item-content>
+    <md-item ng-repeat="book in books">
+        <md-item-content>
+            <div flex>
+                <a ng-href="#/livro/{{ book.id }}" class="nome">{{book.nome}}</a>
+            </div>
+            <div flex>
+                <h4> {{book.autor}}</h4>
+            </div>
+            <div flex>
+                <h4> {{book.categoria.nome}}</h4>
+            </div>
+
+            <div flex="20" style="margin-rigth : 100px">
+
+                <div class="gap"></div>
+                <md-button class="md-primary" ng-click="showConfirm($event , book)">
+                    Excluir
+                </md-button>
+            </div>
+
+
+         </md-item-content>
+        <hr/>
+    </md-item>
+</md-list>

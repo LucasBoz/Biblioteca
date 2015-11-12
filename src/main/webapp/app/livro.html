@@ -1,0 +1,31 @@
+<h1 id="tituloUsuario">Cadastro de Livro</h1>
+
+<form id="userForm" name="userForm" ng-submit="submitForm()" autocomplete="off">
+
+
+
+    <md-input-container>
+        <label>Nome do Livro</label>
+        <input required name="nome" ng-model="livro.nome">
+        <div ng-messages="livro.LivroName.$error">
+            <div ng-message="required">Campo obrigatório.</div>
+        </div>
+    </md-input-container>
+
+    <md-input-container>
+        <label>Nome do Autor</label>
+        <input required name="autor" ng-model="livro.autor">
+        <div ng-messages="livro.autpr.$error">
+            <div ng-message="required">Autor do livro.</div>
+        </div>
+    </md-input-container>
+	<div layout="column" layout-align="left center" style="height: 100px;">
+            <md-select ng-model="livro.categoria"  style="min-width: 200px;">
+                <md-select-label>{{ categoria ? categoria.nome : 'CATEGORIAS' }}</md-select-label>
+                <md-option ng-value="categoria" ng-repeat="categoria in categories">{{categoria.nome}}</md-option>
+            </md-select>
+            <span class="result">{{ categoria ? '' : 'Campo obrigatório' }}</span>
+    </div>
+    <md-button class="md-raised md-primary botaoSalvar" type="submit">SALVAR</md-button>
+    <md-button class="md-raised md-defaut botao" type="button" ng-href="#/livros">CANCELAR</md-button>
+</form>

@@ -1,0 +1,42 @@
+
+<div>
+	<h1 id="tituloUsuario">Cadastro de Usuário</h1>
+</div>
+
+<form id="userForm" name="userForm" ng-submit="submitForm()"
+	autocomplete="off">
+<md-input-container> 
+	<label>Nome Completo</label> 
+		<input required name="nome" ng-model="user.nome">
+			<div ng-messages="nome.clientName.$error">
+				<div ng-message="required">Campo obrigatório.</div>
+			</div>
+</md-input-container>
+
+<md-input-container> 
+	<label>E-mail</label> 
+		<input 	required type="email" name="email" ng-model="user.email">
+			<div ng-messages="email.clientName.$error">
+				<div ng-message="required">Campo obrigatório.</div>
+			</div>
+</md-input-container>
+
+<md-input-container>
+	<label>Endereço</label> 
+		<input ng-model="user.endereco" name="endereco" autocomplete="off"> 
+</md-input-container>
+
+	<div ng-include = "user.id == null ? 'senha_notnull.html' : 'senha_null.html' ">
+		
+	</div>
+	<div layout="column" layout-align="left center" style="height: 100px;"
+		ng-messages="">
+		<md-select ng-model="user.perfil" style="min-width: 200px;"	placeholder="Perfil"> 
+		<md-option value="ADMINISTRADOR">Administrador</md-option> 
+		<md-option value="USUARIO">Usuário</md-option> </md-select>
+		<span class="result ">{{ user.perfil ? '' : 'Campo obrigatório'	}}</span>
+	</div>
+	<md-button class="md-raised md-primary botaoSalvar" type="submit">SALVAR</md-button>
+	<md-button class="md-raised md-defaut botao" type="button"
+		ng-href="#/usuarios">CANCELAR</md-button>
+</form>
